@@ -1,0 +1,134 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f7f8fa;
+  --border: #e3e6ea;
+  --text: #1a1d21;
+  --muted: #5c6470;
+  --link: #14508c;
+  --flag: #8a4b08;
+  --flag-bg: #fdf3e7;
+  --up: #1d6b3f;
+  --down: #9b2c2c;
+  --radius: 8px;
+  --maxw: 900px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171a;
+    --surface: #1c2024;
+    --border: #2c3238;
+    --text: #e8eaed;
+    --muted: #9aa4b0;
+    --link: #7fb4e8;
+    --flag: #e8b473;
+    --flag-bg: #2b2317;
+    --up: #6ecf96;
+    --down: #e88b8b;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #14171a;
+  --surface: #1c2024;
+  --border: #2c3238;
+  --text: #e8eaed;
+  --muted: #9aa4b0;
+  --link: #7fb4e8;
+  --flag: #e8b473;
+  --flag-bg: #2b2317;
+  --up: #6ecf96;
+  --down: #e88b8b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+
+header.site {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+header.site .wrap { display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; padding-top: 14px; padding-bottom: 14px; }
+header.site a.brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 17px; }
+header.site nav { display: flex; gap: 14px; flex-wrap: wrap; }
+header.site nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+header.site nav a:hover { color: var(--link); }
+
+main { padding: 28px 0 56px; }
+
+a { color: var(--link); }
+
+h1 { font-size: 27px; line-height: 1.25; margin: 0 0 6px; }
+h2 { font-size: 19px; margin: 32px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 15px; margin: 20px 0 6px; }
+
+.sub { color: var(--muted); font-size: 14px; margin: 0 0 20px; }
+.muted { color: var(--muted); }
+
+.asof {
+  display: inline-block;
+  font-size: 12.5px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px 11px;
+  margin-bottom: 18px;
+}
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 18px 0; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 15px; }
+.stat .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.stat .value { font-size: 21px; font-weight: 650; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; margin: 12px 0; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); font-weight: 600; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tbody tr:hover { background: var(--surface); }
+
+ul.plain { list-style: none; padding: 0; margin: 10px 0; }
+ul.plain li { padding: 6px 0; border-bottom: 1px solid var(--border); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0; }
+.tag { font-size: 13px; background: var(--surface); border: 1px solid var(--border); border-radius: 99px; padding: 4px 11px; }
+
+.notice {
+  background: var(--flag-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--flag);
+  border-radius: var(--radius);
+  padding: 13px 15px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.notice strong { color: var(--flag); }
+
+.up { color: var(--up); }
+.down { color: var(--down); }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 28px; }
+
+footer.site {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 24px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer.site p { margin: 0 0 8px; }
+
+@media (max-width: 560px) {
+  h1 { font-size: 23px; }
+  table { font-size: 13.5px; }
+  th, td { padding: 7px 6px; }
+}

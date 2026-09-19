@@ -1,0 +1,121 @@
+name: build
+
+# Monthly rebuild from the SEC's newly published Form ADV data.
+#
+# The SEC publishes on the first business day of the month, which is not a fixed
+# date, so this runs each morning for the first week and rebuilds from whatever
+# the SEC's index currently lists. Rebuilds are idempotent -- running on a day
+# with no new file simply republishes the same content.
+
+on:
+  schedule:
+    - cron: "0 13 1-7 * *"
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy to Cloudflare Pages"
+        type: boolean
+        default: true
+
+concurrency:
+  group: build
+  cancel-in-progress: false
+
+permissions:
+  # write: the job commits status/latest.json once a month (see below).
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: |
+          python src/test_city.py
+          python src/test_diff.py
+          python src/test_format.py
+          python src/test_dictionary.py
+
+      - name: Build site
+        env:
+          # sec.gov rejects generic User-Agents. Store a declared name and a
+          # working contact address as a repository secret; the repo is public,
+          # so this must never be committed.
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          # Canonical origin, e.g. https://yourdomain.com. Unset = pages.dev default.
+          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+        run: python src/pipeline.py --rebuild
+
+      - name: Verify the field dictionary still covers every column
+        run: |
+          for f in data/raw/*.csv; do
+            python src/check_coverage.py "$f"
+          done
+
+      - name: Check the build looks sane
+        run: |
+          pages=$(find site -name 'index.html' | wc -l)
+          echo "generated $pages pages"
+          if [ "$pages" -lt 10000 ]; then
+            echo "::error::only $pages pages generated; refusing to deploy"
+            exit 1
+          fi
+          if [ "$pages" -gt 19500 ]; then
+            echo "::warning::$pages pages is close to the Cloudflare Pages 20,000 file limit"
+          fi
+          test -f site/sitemap.xml
+          test -f site/robots.txt
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site/
+          retention-days: 7
+
+      - name: Deploy to Cloudflare Pages
+        # Skipped automatically until the Cloudflare secrets exist, so the
+        # workflow is useful before a domain and account are set up.
+        if: >
+          github.event_name == 'schedule' ||
+          inputs.deploy
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "Cloudflare secrets not set; skipping deploy."
+            echo "The built site is available as the 'site' artifact above."
+            exit 0
+          fi
+          npx --yes wrangler@3 pages deploy site \
+            --project-name="${{ vars.CF_PAGES_PROJECT || 'adv-data' }}" \
+            --branch=main \
+            --commit-dirty=true
+
+      - name: Record snapshot
+        # GitHub disables scheduled workflows in public repositories after 60
+        # days without repository activity. status/latest.json has no timestamp,
+        # so it changes only when the SEC publishes a new month -- this commits
+        # roughly once a month, which keeps the schedule alive indefinitely.
+        # Pushes made with GITHUB_TOKEN do not trigger other workflows, so this
+        # cannot loop.
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add status/latest.json
+          if git diff --cached --quiet; then
+            echo "Snapshot unchanged; nothing to commit."
+          else
+            snapshot=$(python -c "import json; print(json.load(open('status/latest.json'))['snapshot'])")
+            git commit -m "Record Form ADV snapshot ${snapshot}"
+            git push
+          fi

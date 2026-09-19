@@ -1,0 +1,36 @@
+name: tests
+
+# Fast feedback on every push. Does not touch sec.gov, so it needs no secrets
+# and runs on forks and pull requests.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: City normalisation
+        run: python src/test_city.py
+
+      - name: Diff materiality rules
+        run: python src/test_diff.py
+
+      - name: Display formatting
+        run: python src/test_format.py
+
+      - name: Field dictionary invariants
+        run: python src/test_dictionary.py

@@ -1,0 +1,19 @@
+# Bulk downloads and the built database are reproducible from sec.gov on demand
+# (the SEC keeps every monthly archive back to 2006), so nothing here is committed.
+data/raw/
+data/*.sqlite
+data/*.sqlite-journal
+
+# Generated output -- ~17,700 files, rebuilt on every run.
+site/
+site_preview/
+
+# One-off file for creating the Cloudflare Pages project in the dashboard.
+placeholder/
+
+# Reference PDFs are large; extracted text is committed instead.
+reference/*.pdf
+
+.venv/
+__pycache__/
+*.py[cod]
