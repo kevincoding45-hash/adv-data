@@ -47,12 +47,35 @@ A full build is ~17,700 files / 119 MB in about 35 seconds.
 ## Automation
 
 `src/pipeline.py` runs the whole thing: discover the newest published month,
-fetch it and the month before, ingest both, diff, and generate. A full cold run
-takes about 85 seconds.
+fetch it and the month before, ingest both, diff, archive the change summary,
+and generate. A full cold run takes about 85 seconds.
 
 ```
 python src/pipeline.py --rebuild
 ```
+
+### The change archive
+
+The database is rebuilt from scratch every run from only the two newest months,
+which keeps builds fast (two snapshots are already ~390 MB). The one thing that
+must outlive a run is the month-over-month history, so each month's change
+summary is written to `archive/changes/<YYYY-MM>.json` and committed by CI.
+Every rebuild renders all archived months, so `/changes/` pages accumulate
+instead of being replaced.
+
+The files are deterministic -- sorted, no timestamps -- so re-running a month
+produces identical bytes and CI only commits when the SEC publishes new data.
+
+To rebuild the archive, for example after changing what a summary contains:
+
+```
+python src/pipeline.py --backfill-from 2025-12
+```
+
+This processes months one at a time and holds at most two months of field data,
+so it can go back as far as the SEC's unbroken run of monthly files allows.
+Archived pages link to a firm only if that firm has a page in the current build,
+so firms that later deregister or rename never produce dead links.
 
 Two workflows in `.github/workflows`:
 
@@ -100,6 +123,9 @@ fails loudly instead of quietly publishing wrong data about real firms.
 | `src/fetch.py` | Download and unzip a monthly archive |
 | `src/ingest.py` | CSV to SQLite, with typing and quality gates |
 | `src/pipeline.py` | Orchestrates the whole run; what CI calls |
+| `src/changes.py` | Monthly change summaries, archived as committed JSON |
+| `src/test_changes.py` | Tests for the archive: content, determinism, links, month runs |
+| `archive/changes/` | One committed JSON file per month of changes |
 | `src/generate_site.py` | Static site generation, stdlib only |
 | `src/city.py` | City name normalisation and canonical display names |
 | `src/assets/style.css` | Single stylesheet, light and dark |

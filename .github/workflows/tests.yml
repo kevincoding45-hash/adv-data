@@ -34,3 +34,6 @@ jobs:
 
       - name: Field dictionary invariants
         run: python src/test_dictionary.py
+
+      - name: Change archive
+        run: python src/test_changes.py

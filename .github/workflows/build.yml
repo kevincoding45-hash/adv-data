@@ -42,6 +42,7 @@ jobs:
           python src/test_diff.py
           python src/test_format.py
           python src/test_dictionary.py
+          python src/test_changes.py
 
       - name: Build site
         env:
@@ -101,17 +102,21 @@ jobs:
             --branch=main \
             --commit-dirty=true
 
-      - name: Record snapshot
-        # GitHub disables scheduled workflows in public repositories after 60
-        # days without repository activity. status/latest.json has no timestamp,
-        # so it changes only when the SEC publishes a new month -- this commits
-        # roughly once a month, which keeps the schedule alive indefinitely.
+      - name: Record snapshot and change archive
+        # Two jobs in one commit:
+        #  - archive/changes/<YYYY-MM>.json is the month's change summary. The
+        #    rebuild only fetches the two newest months, so without committing
+        #    these, older /changes/ pages would disappear every month.
+        #  - GitHub disables scheduled workflows in public repositories after 60
+        #    days without repository activity. Neither file has a timestamp, so
+        #    they change only when the SEC publishes a new month -- one commit a
+        #    month keeps the schedule alive indefinitely.
         # Pushes made with GITHUB_TOKEN do not trigger other workflows, so this
         # cannot loop.
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add status/latest.json
+          git add status/latest.json archive/changes
           if git diff --cached --quiet; then
             echo "Snapshot unchanged; nothing to commit."
           else

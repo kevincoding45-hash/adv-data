@@ -33,6 +33,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import changes  # noqa: E402
 import city as city_mod  # noqa: E402
 import config  # noqa: E402
 import field_dictionary as fd  # noqa: E402
@@ -406,6 +407,7 @@ def generate(db: Path, out: Path, *, limit: int | None = None) -> dict:
     print(f"snapshot {snapshot}: {len(firms):,} firms")
 
     urls: list[str] = ["/", "/states/", "/disclosures/", "/changes/", "/about/"]
+    live: dict[str, str] = {}  # crd -> firm page URL, for pages that link to firms
     written = 0
 
     # Stream field values grouped by firm so memory stays flat.
@@ -422,6 +424,7 @@ def generate(db: Path, out: Path, *, limit: int | None = None) -> dict:
         url = firm_url(crd, firm["primary_name"] or crd)
         site.write(url.strip("/") + "/index.html", render_firm(site, firm, values))
         urls.append(url)
+        live[crd] = url
         written += 1
         if limit and written >= limit:
             break
@@ -431,10 +434,11 @@ def generate(db: Path, out: Path, *, limit: int | None = None) -> dict:
 
     urls += write_geography(site, conn, snapshot)
     urls += write_disclosures(site, conn, snapshot)
-    urls += write_changes(site, conn, snapshot, previous)
+    change_pages = write_changes(site, live)
+    urls += list(change_pages)
     write_home(site, conn, snapshot, previous)
     write_about(site)
-    write_sitemap(site, urls)
+    write_sitemap(site, urls, lastmod=change_pages)
 
     print(f"  {len(urls):,} urls total -> {out}")
     conn.close()
@@ -633,71 +637,27 @@ def write_disclosures(site: Site, conn: sqlite3.Connection, snapshot: str) -> li
     return []
 
 
-def write_changes(site: Site, conn: sqlite3.Connection, snapshot: str, previous: str | None) -> list[str]:
-    if not previous:
-        site.write(
-            "changes/index.html",
-            layout(
-                site,
-                title=f"Monthly changes - {SITE_NAME}",
-                description="Month-over-month changes in SEC investment adviser registrations.",
-                canonical="/changes/",
-                depth=1,
-                body="<h1>Monthly changes</h1><p class='muted'>Only one snapshot has been "
-                "processed so far. Comparisons appear once a second month is available.</p>",
-            ),
+def firm_link(live: dict[str, str], crd: str, name: str | None, prefix: str) -> str:
+    """Link to a firm's page if it exists in this build, otherwise plain text.
+
+    Archived change pages mention firms that may since have deregistered or been
+    renamed. Resolving through the current build's URLs avoids linking to pages
+    that no longer exist or to a stale slug.
+    """
+    label = esc(title_case(name) or crd)
+    url = live.get(crd)
+    return f"<a href='{prefix}{esc(url.lstrip('/'))}'>{label}</a>" if url else label
+
+
+def render_changes(site: Site, s: dict, live: dict[str, str]) -> str:
+    """One month's change page, from an archived summary (see changes.py)."""
+    period, previous, snapshot, counts = s["period"], s["from"], s["to"], s["counts"]
+    prefix = "../../"
+
+    def where(r: dict) -> str:
+        return ", ".join(
+            p for p in (site.city_label(r["state"], r.get("city_key"), r.get("city")), r["state"]) if p
         )
-        return []
-
-    has_diffs = conn.execute(
-        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='diffs'"
-    ).fetchone()
-    if not has_diffs:
-        raise SystemExit("run diff.py before generating the site")
-
-    pair = (previous, snapshot)
-    period = snapshot[:7]
-
-    def rows(sql: str, params: tuple = ()) -> list[sqlite3.Row]:
-        return conn.execute(sql, pair + params).fetchall()
-
-    registered = rows(
-        f"""
-        SELECT d.crd, f.primary_name, f.city, f.city_key, f.state, f.total_raum
-        FROM diffs d JOIN firms f ON f.crd = d.crd AND f.snapshot_date = '{snapshot}'
-        WHERE d.from_snapshot = ? AND d.to_snapshot = ? AND d.change_type = 'registered'
-        ORDER BY f.total_raum DESC
-        """
-    )
-    deregistered = rows(
-        f"""
-        SELECT d.crd, d.new_text AS primary_name FROM diffs d
-        WHERE d.from_snapshot = ? AND d.to_snapshot = ? AND d.change_type = 'deregistered'
-        ORDER BY d.new_text
-        """
-    )
-    newly_flagged = rows(
-        f"""
-        SELECT d.crd, f.primary_name, f.city, f.city_key, f.state, d.code
-        FROM diffs d JOIN firms f ON f.crd = d.crd AND f.snapshot_date = '{snapshot}'
-        WHERE d.from_snapshot = ? AND d.to_snapshot = ? AND d.change_type = 'field'
-          AND d.code LIKE '11%' AND IFNULL(d.old_num, 0) = 0 AND d.new_num = 1
-        ORDER BY f.primary_name
-        """
-    )
-    movers = rows(
-        f"""
-        SELECT f.primary_name, f.state, f.crd, d.old_num, d.new_num, d.delta, d.pct_change
-        FROM diffs d JOIN firms f ON f.crd = d.crd AND f.snapshot_date = '{snapshot}'
-        WHERE d.from_snapshot = ? AND d.to_snapshot = ? AND d.code = '5F(2)(c)'
-          AND d.old_num IS NOT NULL AND d.new_num IS NOT NULL
-        ORDER BY ABS(d.delta) DESC LIMIT 40
-        """
-    )
-
-    by_firm: dict[str, list] = {}
-    for r in newly_flagged:
-        by_firm.setdefault(r["crd"], []).append(r)
 
     body = [
         f"<h1>What changed in {esc(period)}</h1>",
@@ -707,37 +667,33 @@ def write_changes(site: Site, conn: sqlite3.Connection, snapshot: str, previous:
         + "".join(
             f"<div class='stat'><div class='label'>{l}</div><div class='value'>{v:,}</div></div>"
             for l, v in [
-                ("Newly registered", len(registered)),
-                ("Deregistered", len(deregistered)),
-                ("Newly disclosed", len(by_firm)),
-                ("Major asset moves", len(movers)),
+                ("Newly registered", counts["registered"]),
+                ("Deregistered", counts["deregistered"]),
+                ("Newly disclosed", counts["newly_flagged_firms"]),
+                ("Major asset moves", counts["movers"]),
             ]
         )
         + "</div>",
     ]
 
-    if by_firm:
+    if s["newly_flagged"]:
         body.append(
             "<h2>Firms newly reporting a disclosure</h2>"
             "<p class='sub'>These firms answered Yes this month to an Item 11 question they "
-            "answered No to last month. That can reflect a new event, or an amended filing "
-            "of an older one.</p>"
+            "answered No to the month before. That can reflect a new event, or an amended "
+            "filing of an older one.</p>"
         )
-        for crd, items in by_firm.items():
-            first = items[0]
-            where = ", ".join(
-                p for p in (site.city_label(first["state"], first["city_key"], first["city"]), first["state"]) if p
-            )
+        for r in s["newly_flagged"]:
+            place = where(r)
             body.append(
-                f"<h3><a href='../../firm/{esc(slugify(first['primary_name'] or crd))}-{esc(crd)}/'>"
-                f"{esc(title_case(first['primary_name']) or crd)}</a>"
-                f"{' &middot; ' + esc(where) if where else ''}</h3>"
+                f"<h3>{firm_link(live, r['crd'], r['name'], prefix)}"
+                f"{' &middot; ' + esc(place) if place else ''}</h3>"
                 "<ul class='plain'>"
-                + "".join(f"<li>{esc(fd.label_for(i['code']))}</li>" for i in items)
+                + "".join(f"<li>{esc(fd.label_for(code))}</li>" for code in r["codes"])
                 + "</ul>"
             )
 
-    if movers:
+    if s["movers"]:
         body.append(
             "<h2>Largest reported changes in regulatory assets</h2>"
             "<div class='notice'>These are changes in what firms <strong>reported</strong>. "
@@ -747,52 +703,86 @@ def write_changes(site: Site, conn: sqlite3.Connection, snapshot: str, previous:
             "<table><thead><tr><th>Firm</th><th>State</th><th class='num'>Previous</th>"
             "<th class='num'>Current</th><th class='num'>Change</th></tr></thead><tbody>"
         )
-        for m in movers:
+        for m in s["movers"]:
             cls = "up" if m["delta"] > 0 else "down"
-            pct = f"{m['pct_change']:+.0%}" if m["pct_change"] is not None else ""
+            pct = f"{m['pct']:+.0%}" if m["pct"] is not None else ""
             body.append(
-                f"<tr><td><a href='../../firm/{esc(slugify(m['primary_name'] or m['crd']))}-{esc(m['crd'])}/'>"
-                f"{esc(title_case(m['primary_name']) or m['crd'])}</a></td>"
+                f"<tr><td>{firm_link(live, m['crd'], m['name'], prefix)}</td>"
                 f"<td>{esc(m['state'] or '')}</td>"
-                f"<td class='num'>{esc(money(m['old_num']))}</td>"
-                f"<td class='num'>{esc(money(m['new_num']))}</td>"
+                f"<td class='num'>{esc(money(m['old']))}</td>"
+                f"<td class='num'>{esc(money(m['new']))}</td>"
                 f"<td class='num {cls}'>{esc(pct)}</td></tr>"
             )
         body.append("</tbody></table>")
 
-    if registered:
+    if s["registered"]:
         body.append(
             "<h2>Newly registered advisers</h2><table><thead><tr><th>Firm</th>"
             "<th>Location</th><th class='num'>Assets</th></tr></thead><tbody>"
             + "".join(
-                f"<tr><td><a href='../../firm/{esc(slugify(r['primary_name'] or r['crd']))}-{esc(r['crd'])}/'>"
-                f"{esc(title_case(r['primary_name']) or r['crd'])}</a></td>"
-                f"<td>{esc(', '.join(p for p in (site.city_label(r['state'], r['city_key'], r['city']), r['state']) if p))}</td>"
-                f"<td class='num'>{esc(money(r['total_raum']))}</td></tr>"
-                for r in registered
+                f"<tr><td>{firm_link(live, r['crd'], r['name'], prefix)}</td>"
+                f"<td>{esc(where(r))}</td>"
+                f"<td class='num'>{esc(money(r['raum']))}</td></tr>"
+                for r in s["registered"]
             )
             + "</tbody></table>"
         )
 
-    if deregistered:
+    if s["deregistered"]:
         body.append(
             "<h2>No longer registered</h2>"
             "<p class='sub'>Present in the previous snapshot and absent from this one. "
             "Firms deregister for many ordinary reasons, including mergers and moving to "
             "state registration.</p><ul class='plain'>"
-            + "".join(f"<li>{esc(title_case(r['primary_name']) or r['crd'])}</li>" for r in deregistered)
+            + "".join(
+                f"<li>{firm_link(live, r['crd'], r['name'], prefix)}"
+                f"{' &middot; ' + esc(where(r)) if where(r) else ''}</li>"
+                for r in s["deregistered"]
+            )
             + "</ul>"
         )
 
-    page = layout(
+    return layout(
         site,
         title=f"Investment adviser changes, {period} - {SITE_NAME}",
-        description=f"{len(registered)} newly registered advisers, {len(deregistered)} deregistrations and {len(by_firm)} firms newly reporting a disciplinary disclosure between {previous} and {snapshot}.",
+        description=(
+            f"{counts['registered']} newly registered advisers, {counts['deregistered']} "
+            f"deregistrations and {counts['newly_flagged_firms']} firms newly reporting a "
+            f"disciplinary disclosure between {previous} and {snapshot}."
+        ),
         canonical=f"/changes/{period}/",
         depth=2,
         body="\n".join(body),
     )
-    site.write(f"changes/{period}/index.html", page)
+
+
+def write_changes(site: Site, live: dict[str, str]) -> dict[str, str]:
+    """Render every archived month. Returns {url: lastmod} for the sitemap."""
+    summaries = changes.load_all()
+    pages: dict[str, str] = {}
+    for s in summaries:
+        site.write(f"changes/{s['period']}/index.html", render_changes(site, s, live))
+        pages[f"/changes/{s['period']}/"] = s["to"]
+
+    if summaries:
+        items = "".join(
+            f"<li><a href='{esc(s['period'])}/'>{esc(s['period'])}</a> &mdash; "
+            f"{s['counts']['registered']:,} registered, {s['counts']['deregistered']:,} deregistered, "
+            f"{s['counts']['newly_flagged_firms']:,} newly reporting a disclosure</li>"
+            for s in reversed(summaries)
+        )
+        body = (
+            "<h1>Monthly changes</h1>"
+            "<p class='sub'>The SEC republishes Form ADV data every month. "
+            "These pages record what moved.</p>"
+            f"<ul class='plain'>{items}</ul>"
+        )
+    else:
+        body = (
+            "<h1>Monthly changes</h1><p class='muted'>No month-to-month comparisons "
+            "have been published yet.</p>"
+        )
+
     site.write(
         "changes/index.html",
         layout(
@@ -801,17 +791,10 @@ def write_changes(site: Site, conn: sqlite3.Connection, snapshot: str, previous:
             description="Month-by-month changes in SEC investment adviser registrations, disclosures, and assets.",
             canonical="/changes/",
             depth=1,
-            body=(
-                "<h1>Monthly changes</h1>"
-                "<p class='sub'>The SEC republishes Form ADV data every month. "
-                "These pages record what moved.</p>"
-                f"<ul class='plain'><li><a href='{esc(period)}/'>{esc(period)}</a> &mdash; "
-                f"{len(registered)} registered, {len(deregistered)} deregistered, "
-                f"{len(by_firm)} newly reporting a disclosure</li></ul>"
-            ),
+            body=body,
         ),
     )
-    return [f"/changes/{period}/"]
+    return pages
 
 
 def write_home(site: Site, conn: sqlite3.Connection, snapshot: str, previous: str | None) -> None:
@@ -937,10 +920,12 @@ promptly. Include the firm's CRD number and the page address.</p>
     )
 
 
-def write_sitemap(site: Site, urls: list[str]) -> None:
-    # Sitemaps cap at 50,000 URLs; split if we ever exceed that.
+def write_sitemap(site: Site, urls: list[str], lastmod: dict[str, str] | None = None) -> None:
+    # Sitemaps cap at 50,000 URLs; split if we ever exceed that. Archived change
+    # pages keep their own month as lastmod; everything else is the snapshot.
+    lastmod = lastmod or {}
     entries = "".join(
-        f"<url><loc>{esc(BASE_URL + u)}</loc><lastmod>{esc(site.snapshot)}</lastmod></url>"
+        f"<url><loc>{esc(BASE_URL + u)}</loc><lastmod>{esc(lastmod.get(u, site.snapshot))}</lastmod></url>"
         for u in dict.fromkeys(urls)
     )
     site.write(

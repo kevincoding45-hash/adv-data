@@ -1,0 +1,2533 @@
+{
+ "counts": {
+  "cleared_flags": 55,
+  "deregistered": 76,
+  "movers": 40,
+  "newly_flagged_firms": 24,
+  "registered": 159
+ },
+ "deregistered": [
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "300111",
+   "name": "21PEAKS CAPITAL MANAGEMENT, LLC",
+   "state": null
+  },
+  {
+   "city": "DALLAS",
+   "city_key": "DALLAS",
+   "crd": "305473",
+   "name": "8 KNOTS MANAGEMENT, LLC",
+   "state": "TX"
+  },
+  {
+   "city": "TORONTO",
+   "city_key": "TORONTO",
+   "crd": "335611",
+   "name": "ALAMUT CAPITAL",
+   "state": null
+  },
+  {
+   "city": "BURLINGTON",
+   "city_key": "BURLINGTON",
+   "crd": "160505",
+   "name": "ALCION VENTURES, L.P.",
+   "state": "MA"
+  },
+  {
+   "city": "DENVER",
+   "city_key": "DENVER",
+   "crd": "176516",
+   "name": "ALIGN IMPACT, LLC",
+   "state": "CO"
+  },
+  {
+   "city": "PASADENA",
+   "city_key": "PASADENA",
+   "crd": "338725",
+   "name": "ALPHA ONE ASSET MANAGEMENT LLC",
+   "state": "CA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "285141",
+   "name": "ALPHAQUEST LLC",
+   "state": "NY"
+  },
+  {
+   "city": "DUBLIN",
+   "city_key": "DUBLIN",
+   "crd": "310167",
+   "name": "AMVOY WEALTH",
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "332061",
+   "name": "ARCH OTC LLC",
+   "state": null
+  },
+  {
+   "city": "JUPITER",
+   "city_key": "JUPITER",
+   "crd": "289440",
+   "name": "ATLANTIC WEALTH PARTNERS, LLC",
+   "state": "FL"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "340994",
+   "name": "BERENSON CAPITAL MANAGEMENT, LLC",
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "105455",
+   "name": "BNP PARIBAS ASSET MANAGEMENT USA, INC.",
+   "state": "NY"
+  },
+  {
+   "city": "LONDON",
+   "city_key": "LONDON",
+   "crd": "172298",
+   "name": "BOUSSARD & GAVAUDAN INVESTMENT MANAGEMENT LLP",
+   "state": null
+  },
+  {
+   "city": "PORTOLA VALLEY",
+   "city_key": "PORTOLAVALLEY",
+   "crd": "333400",
+   "name": "CHANGE FORCES",
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "319052",
+   "name": "CLEARUP LLC",
+   "state": null
+  },
+  {
+   "city": "ORINDA",
+   "city_key": "ORINDA",
+   "crd": "150212",
+   "name": "CROSSPOINT CAPITAL MANAGEMENT",
+   "state": "CA"
+  },
+  {
+   "city": "TACOMA",
+   "city_key": "TACOMA",
+   "crd": "144422",
+   "name": "D'ANNUNZIO CONSULTING GROUP, LLC",
+   "state": "WA"
+  },
+  {
+   "city": "PALO ALTO",
+   "city_key": "PALOALTO",
+   "crd": "331985",
+   "name": "DECODE FINANCE LLC",
+   "state": "CA"
+  },
+  {
+   "city": "NORTH MIAMI",
+   "city_key": "NORTHMIAMI",
+   "crd": "312819",
+   "name": "DINERAZO INC.",
+   "state": "FL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "315372",
+   "name": "DOUBLE I INVESTMENTS, LLC",
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "307201",
+   "name": "EARLYBIRD CENTRAL INC.",
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "324439",
+   "name": "EARTHQUAKE",
+   "state": null
+  },
+  {
+   "city": "PLOVER",
+   "city_key": "PLOVER",
+   "crd": "312178",
+   "name": "ELITE RETIREMENT GROUP",
+   "state": "WI"
+  },
+  {
+   "city": "PHILADELPHIA",
+   "city_key": "PHILADELPHIA",
+   "crd": "335175",
+   "name": "FIDEM CREDIT ADVISORS",
+   "state": "PA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "313009",
+   "name": "FINANCE FRIENDS",
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "305744",
+   "name": "FINEQUITIES LLC",
+   "state": null
+  },
+  {
+   "city": "BELMONT",
+   "city_key": "BELMONT",
+   "crd": "313047",
+   "name": "FINSIE",
+   "state": "CA"
+  },
+  {
+   "city": "STAMFORD",
+   "city_key": "STAMFORD",
+   "crd": "324052",
+   "name": "FINTRON ADVISORS, LLC",
+   "state": "CT"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "337946",
+   "name": "FMAC MANAGEMENT LLC",
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "289387",
+   "name": "FOCUSED TRADING AND INVESTMENTS, INC.",
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "324188",
+   "name": "GIBERTINI, ANTHONY",
+   "state": null
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "crd": "301888",
+   "name": "HEMISTA INC.",
+   "state": "MA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "127213",
+   "name": "HODGE FINANCIAL SERVICES, LLC",
+   "state": null
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "175032",
+   "name": "HUDSON EXECUTIVE CAPITAL LP",
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "338267",
+   "name": "HURRICANE ADVISOR SOLUTIONS",
+   "state": "NY"
+  },
+  {
+   "city": "COLUMBUS",
+   "city_key": "COLUMBUS",
+   "crd": "111537",
+   "name": "IMC ADVISORS, LLC",
+   "state": "IN"
+  },
+  {
+   "city": "TORONTO, ONTARIO",
+   "city_key": "TORONTOONTARIO",
+   "crd": "126572",
+   "name": "INVESCO",
+   "state": null
+  },
+  {
+   "city": "DENVER",
+   "city_key": "DENVER",
+   "crd": "136314",
+   "name": "IWP WEALTH MANAGEMENT LLC",
+   "state": "CO"
+  },
+  {
+   "city": "LEXINGTON",
+   "city_key": "LEXINGTON",
+   "crd": "320791",
+   "name": "JOULE FINANCIAL, LLC",
+   "state": "KY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "338848",
+   "name": "LANMAR CAPITAL MANAGEMENT",
+   "state": null
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "218514",
+   "name": "LPK INVESTMENT GROUP, LLP",
+   "state": "NY"
+  },
+  {
+   "city": "ALBUQUERQUE",
+   "city_key": "ALBUQUERQUE",
+   "crd": "140991",
+   "name": "MERIDIAN WEALTH ADVISORS, LLC",
+   "state": "NM"
+  },
+  {
+   "city": "DENVER",
+   "city_key": "DENVER",
+   "crd": "330056",
+   "name": "MIDBRIDGE ADVISORS LP",
+   "state": "CO"
+  },
+  {
+   "city": "AUBURN",
+   "city_key": "AUBURN",
+   "crd": "337688",
+   "name": "MM ADVISORS, LLC",
+   "state": "AL"
+  },
+  {
+   "city": "WESTERLY",
+   "city_key": "WESTERLY",
+   "crd": "292776",
+   "name": "NAPATREE CAPITAL LLC",
+   "state": "RI"
+  },
+  {
+   "city": "PLANTATION",
+   "city_key": "PLANTATION",
+   "crd": "131507",
+   "name": "NORTHSTAR FINANCIAL PLANNERS, INC.",
+   "state": "FL"
+  },
+  {
+   "city": "WASHINGTON",
+   "city_key": "WASHINGTON",
+   "crd": "311802",
+   "name": "OAKHURST CAPITAL ADVISORS, LLC",
+   "state": "DC"
+  },
+  {
+   "city": "PROSPECT",
+   "city_key": "PROSPECT",
+   "crd": "324621",
+   "name": "OFF CAMBER CREATIVE LLC",
+   "state": "KY"
+  },
+  {
+   "city": "PURCHASE",
+   "city_key": "PURCHASE",
+   "crd": "38474",
+   "name": "OLSTEIN CAPITAL MANAGEMENT, L.P.",
+   "state": "NY"
+  },
+  {
+   "city": "EL PASO",
+   "city_key": "ELPASO",
+   "crd": "339768",
+   "name": "PECUSAVVY FINANCIAL",
+   "state": "TX"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "318747",
+   "name": "RANSOM ADVISORY",
+   "state": null
+  },
+  {
+   "city": "ATLANTA",
+   "city_key": "ATLANTA",
+   "crd": "282509",
+   "name": "RED TORTOISE",
+   "state": "GA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "226518",
+   "name": "REGATTA LOAN MANAGEMENT LLC",
+   "state": "NY"
+  },
+  {
+   "city": "IRVINE",
+   "city_key": "IRVINE",
+   "crd": "284684",
+   "name": "REGENTS PARK FUNDS, LLC",
+   "state": "CA"
+  },
+  {
+   "city": "WILMETTE",
+   "city_key": "WILMETTE",
+   "crd": "119833",
+   "name": "RESOURCE FINANCIAL GROUP, LTD.",
+   "state": "IL"
+  },
+  {
+   "city": "CINCINNATI",
+   "city_key": "CINCINNATI",
+   "crd": "321827",
+   "name": "RITTER DANIHER FINANCIAL ADVISORY LLC",
+   "state": "OH"
+  },
+  {
+   "city": "PASADENA",
+   "city_key": "PASADENA",
+   "crd": "338629",
+   "name": "SCOUT WEALTH ADVISORS LLC",
+   "state": "CA"
+  },
+  {
+   "city": "DALLAS",
+   "city_key": "DALLAS",
+   "crd": "106301",
+   "name": "SMITH GROUP ASSET MANAGEMENT",
+   "state": "TX"
+  },
+  {
+   "city": "BANNOCKBURN",
+   "city_key": "BANNOCKBURN",
+   "crd": "327104",
+   "name": "SOUND ADVICE FINANCIAL INC.",
+   "state": "IL"
+  },
+  {
+   "city": "SANTA MONICA",
+   "city_key": "SANTAMONICA",
+   "crd": "339795",
+   "name": "SPA RIA",
+   "state": "CA"
+  },
+  {
+   "city": "BARTLESVILLE",
+   "city_key": "BARTLESVILLE",
+   "crd": "115959",
+   "name": "SPUR CAPITAL PARTNERS",
+   "state": "OK"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "121335",
+   "name": "SUMMIT CAPITAL INC.",
+   "state": null
+  },
+  {
+   "city": "SALINA",
+   "city_key": "SALINA",
+   "crd": "269963",
+   "name": "SUNFLOWER WEALTH ADVISORS LLC",
+   "state": "KS"
+  },
+  {
+   "city": "MONTCLAIR",
+   "city_key": "MONTCLAIR",
+   "crd": "158866",
+   "name": "TALARA CAPITAL MANAGEMENT, LLC",
+   "state": "NJ"
+  },
+  {
+   "city": "RED BANK",
+   "city_key": "REDBANK",
+   "crd": "106758",
+   "name": "THE HOGAN-KNOTTS FINANCIAL GROUP, INC.",
+   "state": "NJ"
+  },
+  {
+   "city": "BROOKLYN",
+   "city_key": "BROOKLYN",
+   "crd": "327585",
+   "name": "TREASURY INTERACTIVE INVESTMENT ADVISERS LLC",
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "295416",
+   "name": "TWO SIGMA VENTURES, LP",
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "309001",
+   "name": "UNIFIMONEY RIA, INC.",
+   "state": null
+  },
+  {
+   "city": "GREENVILLE",
+   "city_key": "GREENVILLE",
+   "crd": "2655",
+   "name": "V.M. MANNING & CO., INC.",
+   "state": "SC"
+  },
+  {
+   "city": "ARLINGTON",
+   "city_key": "ARLINGTON",
+   "crd": "162206",
+   "name": "VANSHAP CAPITAL, LLC",
+   "state": "VA"
+  },
+  {
+   "city": "CHICAGO",
+   "city_key": "CHICAGO",
+   "crd": "160150",
+   "name": "VIVALDI CAPITAL MANAGEMENT LP",
+   "state": "IL"
+  },
+  {
+   "city": "DELAFIELD",
+   "city_key": "DELAFIELD",
+   "crd": "112181",
+   "name": "WARNKE/NICHOLS LTD.",
+   "state": "WI"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "139265",
+   "name": "WATERSTONE WEALTH ADVISORS, LLC",
+   "state": null
+  },
+  {
+   "city": "CARY",
+   "city_key": "CARY",
+   "crd": "328782",
+   "name": "WEALTH BUILDER FUNDS LLC",
+   "state": "IL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "305500",
+   "name": "WEALTHGAP",
+   "state": null
+  },
+  {
+   "city": "TUCSON",
+   "city_key": "TUCSON",
+   "crd": "158872",
+   "name": "WELLSPRING FINANCIAL PARTNERS",
+   "state": "AZ"
+  }
+ ],
+ "from": "2026-07-01",
+ "identity": {
+  "city_key": 48,
+  "legal_name": 24,
+  "primary_name": 27,
+  "state": 31,
+  "website": 268
+ },
+ "movers": [
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "111035",
+   "delta": 7669584552.0,
+   "name": "COLLER INVESTMENT MANAGEMENT LTD",
+   "new": 36657342081.0,
+   "old": 28987757529.0,
+   "pct": 0.2645801264318972,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "154172",
+   "delta": 3678443130.0,
+   "name": "TRIAN FUND MANAGEMENT, L.P.",
+   "new": 10392850137.0,
+   "old": 6714407007.0,
+   "pct": 0.5478433354077429,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "158102",
+   "delta": 2949395673.0,
+   "name": "COLLER CAPITAL INC",
+   "new": 11952891545.0,
+   "old": 9003495872.0,
+   "pct": 0.32758338704550694,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "126487",
+   "delta": -2664342142.0,
+   "name": "PINNACLE ASSET MANAGEMENT, L.P.",
+   "new": 6230507858.0,
+   "old": 8894850000.0,
+   "pct": -0.29953761356290437,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "30833",
+   "delta": 2404019102.0,
+   "name": "CENTAURUS FINANCIAL, INC.",
+   "new": 9740127253.0,
+   "old": 7336108151.0,
+   "pct": 0.327696791339193,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "333610",
+   "delta": 1900775791.0,
+   "name": "AERIE ADVISORY GROUP LLC",
+   "new": 2518827849.0,
+   "old": 618052058.0,
+   "pct": 3.075429919529529,
+   "state": "WA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "285961",
+   "delta": 1565793313.0,
+   "name": "FACET",
+   "new": 7603700943.0,
+   "old": 6037907630.0,
+   "pct": 0.25932713929245715,
+   "state": "FL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340830",
+   "delta": 1564247778.0,
+   "name": "EVERTERN WEALTH, LLC",
+   "new": 1564247778.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "FL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "152667",
+   "delta": 1415046056.0,
+   "name": "BLUESPRING WEALTH MANAGEMENT, LLC",
+   "new": 5430907207.0,
+   "old": 4015861151.0,
+   "pct": 0.35236428820444543,
+   "state": "TX"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340174",
+   "delta": 1093210505.0,
+   "name": "TANARA WEALTH MANAGEMENT LLC",
+   "new": 1093210505.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "UT"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "339742",
+   "delta": 888349379.0,
+   "name": "SAGEPOINT CAPITAL PARTNERS LLC",
+   "new": 888349379.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "TN"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "167103",
+   "delta": 888165158.0,
+   "name": "BEIRNE.",
+   "new": 2259001736.0,
+   "old": 1370836578.0,
+   "pct": 0.6479001014809513,
+   "state": "CT"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "313265",
+   "delta": -803564216.0,
+   "name": "SMITH GROUP ASSET MANAGEMENT, LLC",
+   "new": 1410264267.0,
+   "old": 2213828483.0,
+   "pct": -0.3629749197693379,
+   "state": "TX"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "312788",
+   "delta": 760532478.0,
+   "name": "AFFINITY ASSET ADVISORS, LLC",
+   "new": 2451641809.0,
+   "old": 1691109331.0,
+   "pct": 0.44972401491645486,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "341725",
+   "delta": 753288631.0,
+   "name": "DX ADVISORS LLC",
+   "new": 753288631.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "NV"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "337481",
+   "delta": 717000000.0,
+   "name": "SAGE TRADING COLLECTIVE",
+   "new": 1222000000.0,
+   "old": 505000000.0,
+   "pct": 1.4198019801980197,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340877",
+   "delta": 711911936.0,
+   "name": "WOODLAND WEALTH PARTNERS",
+   "new": 711911936.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "OH"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340683",
+   "delta": 649946000.0,
+   "name": "BRIDGECREEK FINANCIAL GROUP",
+   "new": 649946000.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "OK"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "285262",
+   "delta": -639314564.0,
+   "name": "CONSEQUENT CAPITAL MANAGEMENT, LLC",
+   "new": 0.0,
+   "old": 639314564.0,
+   "pct": -1.0,
+   "state": "GA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340644",
+   "delta": 606152179.0,
+   "name": "SHAH WEALTH ADVISORS",
+   "new": 606152179.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "341186",
+   "delta": 544636725.0,
+   "name": "TRILLIUM WEALTH LLC",
+   "new": 544636725.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "FL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340998",
+   "delta": 532920068.0,
+   "name": "WEALTH INTELLIGENTLY NAVIGATED, LLC",
+   "new": 532920068.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "SC"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "337459",
+   "delta": 481483347.0,
+   "name": "15 WEALTH ADVISORS LLC",
+   "new": 481483347.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "IL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "341399",
+   "delta": 448206508.0,
+   "name": "MERIT CAPITAL PARTNERS VI, LLC",
+   "new": 448206508.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "IL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "156890",
+   "delta": -447824155.0,
+   "name": "MERIT CAPITAL PARTNERS MANAGEMENT, L.L.C.",
+   "new": 991083096.0,
+   "old": 1438907251.0,
+   "pct": -0.31122517082930456,
+   "state": "IL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "315570",
+   "delta": 446784300.0,
+   "name": "BLUEPRINT FINANCIAL ADVISORS",
+   "new": 1413379200.0,
+   "old": 966594900.0,
+   "pct": 0.4622249713918416,
+   "state": "NC"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "316847",
+   "delta": 363186638.0,
+   "name": "OPTO INVESTMENT MANAGEMENT, LLC",
+   "new": 928573008.0,
+   "old": 565386370.0,
+   "pct": 0.6423689308251276,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "322882",
+   "delta": 312754518.0,
+   "name": "AUTILUS PARTNERS LLC",
+   "new": 413754518.0,
+   "old": 101000000.0,
+   "pct": 3.0965793861386137,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "140500",
+   "delta": -307240108.0,
+   "name": "NIPPON VALUE INVESTORS",
+   "new": 591286435.0,
+   "old": 898526543.0,
+   "pct": -0.3419377094572931,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340501",
+   "delta": 303030303.0,
+   "name": "THE OPERATORS FUND INVESTMENT MANAGEMENT, L.P.",
+   "new": 303030303.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340444",
+   "delta": 292181992.0,
+   "name": "EXCEPTIONAL WEALTH & FAMILY OFFICE",
+   "new": 292181992.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "CO"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340681",
+   "delta": 285000000.0,
+   "name": "MOSAIC WEALTH MANAGEMENT LLC",
+   "new": 285000000.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "IN"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "341117",
+   "delta": 266785469.0,
+   "name": "LIONHUNTER CAPITAL MANAGEMENT LLC",
+   "new": 266785469.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340706",
+   "delta": 250625000.0,
+   "name": "DS2 CAPITAL LLC",
+   "new": 250625000.0,
+   "old": 0.0,
+   "pct": null,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340892",
+   "delta": 250000000.0,
+   "name": "QSO CAPITAL MANAGEMENT LLC",
+   "new": 250000000.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "FL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "339299",
+   "delta": 233261727.0,
+   "name": "MBX INVESTORS LLC",
+   "new": 457817644.0,
+   "old": 224555917.0,
+   "pct": 1.0387690073648783,
+   "state": "MI"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340471",
+   "delta": 230978670.0,
+   "name": "ROSENBERG WEALTH ADVISORS",
+   "new": 230978670.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "MI"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "340280",
+   "delta": 214502129.0,
+   "name": "AJAX HEALTH MANAGEMENT COMPANY, LLC",
+   "new": 214502129.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "317517",
+   "delta": 209566821.0,
+   "name": "STEVENS CAPITAL PARTNERS",
+   "new": 810293180.0,
+   "old": 600726359.0,
+   "pct": 0.34885571085786166,
+   "state": "NE"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "337704",
+   "delta": 204060790.0,
+   "name": "COMMERCIAL TRUST FINANCIAL SERVICES",
+   "new": 204060790.0,
+   "old": 0.0,
+   "pct": null,
+   "state": "MO"
+  }
+ ],
+ "newly_flagged": [
+  {
+   "city": "SARASOTA",
+   "city_key": "SARASOTA",
+   "codes": [
+    "11",
+    "11D(2)"
+   ],
+   "crd": "284438",
+   "name": "ADVANCED WEALTH MANAGEMENT",
+   "state": "FL"
+  },
+  {
+   "city": "AUBURN",
+   "city_key": "AUBURN",
+   "codes": [
+    "11",
+    "11G"
+   ],
+   "crd": "290853",
+   "name": "ARROW WEALTH ADVISORS",
+   "state": "CA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "codes": [
+    "11D(5)"
+   ],
+   "crd": "171274",
+   "name": "BERENBERG ASSET MANAGEMENT LLC",
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "codes": [
+    "11H(2)"
+   ],
+   "crd": "142766",
+   "name": "CANARAS CAPITAL MANAGEMENT, LLC",
+   "state": "NY"
+  },
+  {
+   "city": "ST. LOUIS",
+   "city_key": "SAINTLOUIS",
+   "codes": [
+    "11D(4)"
+   ],
+   "crd": "282420",
+   "name": "COMPASS RETIREMENT GROUP LLC",
+   "state": "MO"
+  },
+  {
+   "city": "MIAMI",
+   "city_key": "MIAMI",
+   "codes": [
+    "11E(2)"
+   ],
+   "crd": "319448",
+   "name": "CORIENT",
+   "state": "FL"
+  },
+  {
+   "city": "TAMPA",
+   "city_key": "TAMPA",
+   "codes": [
+    "11D(2)"
+   ],
+   "crd": "288811",
+   "name": "FLORIDA FINANCIAL ADVISORS, LLC",
+   "state": "FL"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "codes": [
+    "11D(2)",
+    "11D(4)"
+   ],
+   "crd": "334800",
+   "name": "GDEV MANAGEMENT, LLC",
+   "state": "NY"
+  },
+  {
+   "city": "BIRMINGHAM",
+   "city_key": "BIRMINGHAM",
+   "codes": [
+    "11E(2)"
+   ],
+   "crd": "104948",
+   "name": "HIGHLAND ASSOCIATES INC",
+   "state": "AL"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "codes": [
+    "11",
+    "11D(4)",
+    "11E(2)"
+   ],
+   "crd": "343369",
+   "name": "INGALLS INVESTMENT MANAGEMENT, LLC",
+   "state": "NY"
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "codes": [
+    "11D(2)",
+    "11D(4)"
+   ],
+   "crd": "343021",
+   "name": "MAN ADVISERS LLC",
+   "state": "MA"
+  },
+  {
+   "city": "LONDON",
+   "city_key": "LONDON",
+   "codes": [
+    "11C(2)",
+    "11C(5)",
+    "11D(4)"
+   ],
+   "crd": "147686",
+   "name": "MASECO PRIVATE WEALTH",
+   "state": null
+  },
+  {
+   "city": "PUEBLO",
+   "city_key": "PUEBLO",
+   "codes": [
+    "11D(2)",
+    "11D(4)",
+    "11D(5)"
+   ],
+   "crd": "150079",
+   "name": "MATHIES FINANCIAL PARTNERS",
+   "state": "CO"
+  },
+  {
+   "city": "DENVER",
+   "city_key": "DENVER",
+   "codes": [
+    "11",
+    "11D(2)",
+    "11D(4)"
+   ],
+   "crd": "147363",
+   "name": "MERCER GLOBAL ADVISORS INC.",
+   "state": "CO"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "codes": [
+    "11",
+    "11C(4)",
+    "11C(5)"
+   ],
+   "crd": "343216",
+   "name": "NEOSTELLAR ADVISORS LLC",
+   "state": "NY"
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "codes": [
+    "11D(4)",
+    "11D(5)",
+    "11E(2)"
+   ],
+   "crd": "110562",
+   "name": "NEPC, LLC",
+   "state": "MA"
+  },
+  {
+   "city": "ALLENTOWN",
+   "city_key": "ALLENTOWN",
+   "codes": [
+    "11C(2)",
+    "11C(4)",
+    "11C(5)"
+   ],
+   "crd": "122609",
+   "name": "NORTHEAST FINANCIAL GROUP, INC.",
+   "state": "PA"
+  },
+  {
+   "city": "AUSTIN",
+   "city_key": "AUSTIN",
+   "codes": [
+    "11C(2)",
+    "11C(4)",
+    "11C(5)"
+   ],
+   "crd": "149694",
+   "name": "PRECISION FIDUCIARY PARTNERS, LLC",
+   "state": "TX"
+  },
+  {
+   "city": "DULUTH",
+   "city_key": "DULUTH",
+   "codes": [
+    "11A(2)"
+   ],
+   "crd": "10111",
+   "name": "PRIMERICA ADVISORS",
+   "state": "GA"
+  },
+  {
+   "city": "LIVERPOOL",
+   "city_key": "LIVERPOOL",
+   "codes": [
+    "11D(5)"
+   ],
+   "crd": "124925",
+   "name": "RATHBONES",
+   "state": null
+  },
+  {
+   "city": "BIRMINGHAM",
+   "city_key": "BIRMINGHAM",
+   "codes": [
+    "11E(2)"
+   ],
+   "crd": "111715",
+   "name": "REGIONS INVESTMENT MANAGEMENT, INC.",
+   "state": "AL"
+  },
+  {
+   "city": "CHICAGO",
+   "city_key": "CHICAGO",
+   "codes": [
+    "11",
+    "11D(2)"
+   ],
+   "crd": "156005",
+   "name": "THE MATHER GROUP, LLC",
+   "state": "IL"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "codes": [
+    "11",
+    "11D(2)"
+   ],
+   "crd": "289075",
+   "name": "TIKEHAU CAPITAL NORTH AMERICA LLC",
+   "state": "NY"
+  },
+  {
+   "city": "FORT WORTH",
+   "city_key": "FORTWORTH",
+   "codes": [
+    "11A(1)"
+   ],
+   "crd": "159738",
+   "name": "TPG CAPITAL ADVISORS, LLC",
+   "state": "TX"
+  }
+ ],
+ "period": "2026-08",
+ "registered": [
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "343369",
+   "name": "INGALLS INVESTMENT MANAGEMENT, LLC",
+   "raum": 7826602578.0,
+   "state": "NY"
+  },
+  {
+   "city": "VANCOUVER",
+   "city_key": "VANCOUVER",
+   "crd": "335888",
+   "name": "HIIVE ADVISORS INC.",
+   "raum": 1129870005.0,
+   "state": null
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "321942",
+   "name": "DEFINITION CAPITAL",
+   "raum": 791895131.0,
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "165300",
+   "name": "COMPOUND ADVISORS, LLC",
+   "raum": 732278497.0,
+   "state": "NY"
+  },
+  {
+   "city": "SCOTTSDALE",
+   "city_key": "SCOTTSDALE",
+   "crd": "342319",
+   "name": "ASSET GROWTH SOLUTIONS, LLC",
+   "raum": 702717385.0,
+   "state": "AZ"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "333406",
+   "name": "EMERGENT STRATEGIC PARTNERS, LLC",
+   "raum": 598680867.0,
+   "state": null
+  },
+  {
+   "city": "COS COB",
+   "city_key": "COSCOB",
+   "crd": "334365",
+   "name": "POINT 41 CAPITAL PARTNERS, L.P.",
+   "raum": 562851645.0,
+   "state": "CT"
+  },
+  {
+   "city": "MIAMI",
+   "city_key": "MIAMI",
+   "crd": "315859",
+   "name": "SECURITIZE CAPITAL LLC",
+   "raum": 530192153.0,
+   "state": "FL"
+  },
+  {
+   "city": "SAN FRANCISCO",
+   "city_key": "SANFRANCISCO",
+   "crd": "321649",
+   "name": "NEXT HORIZON CAPITAL",
+   "raum": 505833411.0,
+   "state": "CA"
+  },
+  {
+   "city": "WASHINGTON",
+   "city_key": "WASHINGTON",
+   "crd": "281209",
+   "name": "MULTIPLIER CAPITAL, LLC",
+   "raum": 503015421.0,
+   "state": "DC"
+  },
+  {
+   "city": "CHICAGO",
+   "city_key": "CHICAGO",
+   "crd": "324358",
+   "name": "TRANSITION EQUITY PARTNERS, LLC",
+   "raum": 501770331.0,
+   "state": "IL"
+  },
+  {
+   "city": "ATLANTA",
+   "city_key": "ATLANTA",
+   "crd": "319179",
+   "name": "TCP MANAGEMENT LLC",
+   "raum": 463512316.0,
+   "state": "GA"
+  },
+  {
+   "city": "LOS ANGELES",
+   "city_key": "LOSANGELES",
+   "crd": "333924",
+   "name": "FUSION CAPITAL",
+   "raum": 461353227.0,
+   "state": "CA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "334800",
+   "name": "GDEV MANAGEMENT, LLC",
+   "raum": 459708441.0,
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "343216",
+   "name": "NEOSTELLAR ADVISORS LLC",
+   "raum": 433266156.0,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "330008",
+   "name": "COTULLA HOLDINGS LLC",
+   "raum": 432500000.0,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "325777",
+   "name": "ISLAND GREEN CAPITAL MANAGEMENT LLC",
+   "raum": 416895898.0,
+   "state": null
+  },
+  {
+   "city": "BOCA RATON",
+   "city_key": "BOCARATON",
+   "crd": "334986",
+   "name": "PALM PEAK CAPITAL, LLC",
+   "raum": 400841880.0,
+   "state": "FL"
+  },
+  {
+   "city": "TORONTO, ONTARIO",
+   "city_key": "TORONTOONTARIO",
+   "crd": "338898",
+   "name": "RAVENSTONE CAPITAL MANAGEMENT INC.",
+   "raum": 370890873.0,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "342682",
+   "name": "CHARBETH ADVISORY L.L.C.",
+   "raum": 370000000.0,
+   "state": null
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "crd": "157922",
+   "name": "NORTH RUN CAPITAL, LP",
+   "raum": 334540005.0,
+   "state": "MA"
+  },
+  {
+   "city": "NASHVILLE",
+   "city_key": "NASHVILLE",
+   "crd": "341500",
+   "name": "RARE CAPITAL MANAGEMENT, LLC",
+   "raum": 333641082.0,
+   "state": "TN"
+  },
+  {
+   "city": "ATLANTA",
+   "city_key": "ATLANTA",
+   "crd": "317336",
+   "name": "GRIDLINE",
+   "raum": 332137394.0,
+   "state": "GA"
+  },
+  {
+   "city": "FARMINGTON HILLS",
+   "city_key": "FARMINGTONHILLS",
+   "crd": "284918",
+   "name": "MARNELL MANAGEMENT LLC",
+   "raum": 306132857.0,
+   "state": "MI"
+  },
+  {
+   "city": "AUSTIN",
+   "city_key": "AUSTIN",
+   "crd": "332920",
+   "name": "NEXTBIO CAPITAL MANAGEMENT LP",
+   "raum": 305214283.0,
+   "state": "TX"
+  },
+  {
+   "city": "DURHAM",
+   "city_key": "DURHAM",
+   "crd": "342947",
+   "name": "HEADWAY WEALTH",
+   "raum": 301000035.0,
+   "state": null
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "312017",
+   "name": "WELLSPRING GBL, LLC",
+   "raum": 300457407.0,
+   "state": "NY"
+  },
+  {
+   "city": "MIAMI BEACH",
+   "city_key": "MIAMIBEACH",
+   "crd": "287819",
+   "name": "THIRD EYE CAPITAL MANAGEMENT, LLC",
+   "raum": 291295000.0,
+   "state": "FL"
+  },
+  {
+   "city": "EVANSTON",
+   "city_key": "EVANSTON",
+   "crd": "329585",
+   "name": "MAXWELL STREET CAPITAL PARTNERS, LP",
+   "raum": 284297177.0,
+   "state": "IL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "302093",
+   "name": "MINK BROOK ASSET MANAGEMENT LLC",
+   "raum": 280675956.0,
+   "state": null
+  },
+  {
+   "city": "STAMFORD",
+   "city_key": "STAMFORD",
+   "crd": "327487",
+   "name": "DAYAH CAPITAL LLC",
+   "raum": 264841930.0,
+   "state": "CT"
+  },
+  {
+   "city": "SAN FRANCISCO",
+   "city_key": "SANFRANCISCO",
+   "crd": "338340",
+   "name": "BLUELINE CAPITAL",
+   "raum": 240437028.0,
+   "state": "CA"
+  },
+  {
+   "city": "MEMPHIS",
+   "city_key": "MEMPHIS",
+   "crd": "330668",
+   "name": "RIDGELINE CAPITAL MANAGEMENT, LLC",
+   "raum": 228307588.0,
+   "state": "TN"
+  },
+  {
+   "city": "SAN FRANCISCO",
+   "city_key": "SANFRANCISCO",
+   "crd": "325593",
+   "name": "INCISION CAPITAL MANAGEMENT LP",
+   "raum": 220288168.0,
+   "state": "CA"
+  },
+  {
+   "city": "CHICAGO",
+   "city_key": "CHICAGO",
+   "crd": "341131",
+   "name": "RISING POINT CAPITAL",
+   "raum": 219649179.0,
+   "state": "IL"
+  },
+  {
+   "city": "LOS ANGELES",
+   "city_key": "LOSANGELES",
+   "crd": "290744",
+   "name": "BUTLER HALL CAPITAL LLC",
+   "raum": 218293112.0,
+   "state": "CA"
+  },
+  {
+   "city": "STAMFORD",
+   "city_key": "STAMFORD",
+   "crd": "325314",
+   "name": "TWIN LIONS MANAGEMENT",
+   "raum": 215869723.0,
+   "state": "CT"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "329673",
+   "name": "WINFOREST PARTNERS",
+   "raum": 201426485.0,
+   "state": null
+  },
+  {
+   "city": "HARTLAND",
+   "city_key": "HARTLAND",
+   "crd": "132024",
+   "name": "PALADIN PARTNERS",
+   "raum": 198517308.0,
+   "state": "WI"
+  },
+  {
+   "city": "WESTPORT",
+   "city_key": "WESTPORT",
+   "crd": "333626",
+   "name": "SPICE EXPEDITIONS, LP",
+   "raum": 195873033.0,
+   "state": "CT"
+  },
+  {
+   "city": "CINCINNATI",
+   "city_key": "CINCINNATI",
+   "crd": "309944",
+   "name": "CLAYMORE CAPITAL PARTNERS",
+   "raum": 183940042.0,
+   "state": "OH"
+  },
+  {
+   "city": "BEND",
+   "city_key": "BEND",
+   "crd": "139891",
+   "name": "STONEPINE CAPITAL MANAGEMENT, LLC",
+   "raum": 181001870.0,
+   "state": "OR"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "312190",
+   "name": "ESSENTIA FUND ADVISORS, LLC",
+   "raum": 173393140.0,
+   "state": null
+  },
+  {
+   "city": "SANTA MONICA",
+   "city_key": "SANTAMONICA",
+   "crd": "330571",
+   "name": "COUNTER GLOBAL, L.P.",
+   "raum": 172658636.0,
+   "state": "CA"
+  },
+  {
+   "city": "YARDLEY",
+   "city_key": "YARDLEY",
+   "crd": "338936",
+   "name": "AETERNITAS INVESTMENT MANAGEMENT, LLC",
+   "raum": 172503179.0,
+   "state": "PA"
+  },
+  {
+   "city": "NORTH MIAMI BEACH",
+   "city_key": "NORTHMIAMIBEACH",
+   "crd": "335156",
+   "name": "PATH CAPITAL PARTNERS, LLC",
+   "raum": 169002642.0,
+   "state": "FL"
+  },
+  {
+   "city": "SAN FRANCISCO",
+   "city_key": "SANFRANCISCO",
+   "crd": "282230",
+   "name": "FINANCIAL ZEN",
+   "raum": 167610372.0,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "305172",
+   "name": "OLD VINE CAPITAL",
+   "raum": 167047136.0,
+   "state": null
+  },
+  {
+   "city": "EUGENE",
+   "city_key": "EUGENE",
+   "crd": "142109",
+   "name": "J.P. CAPITAL MANAGEMENT, INC.",
+   "raum": 166598986.0,
+   "state": "OR"
+  },
+  {
+   "city": "MONROE",
+   "city_key": "MONROE",
+   "crd": "298014",
+   "name": "RIVER RAISIN INVESTMENT PARTNERS, INC.",
+   "raum": 163541000.0,
+   "state": "MI"
+  },
+  {
+   "city": "SUMMIT",
+   "city_key": "SUMMIT",
+   "crd": "306123",
+   "name": "EGIS CAPITAL PARTNERS LP",
+   "raum": 160831523.0,
+   "state": "NJ"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "335760",
+   "name": "GREEN HORIZON PARTNERS CAPITAL LLC",
+   "raum": 159589409.0,
+   "state": null
+  },
+  {
+   "city": "ENGLEWOOD CLIFFS",
+   "city_key": "ENGLEWOODCLIFFS",
+   "crd": "173067",
+   "name": "NITOR CAPITAL MANAGEMENT",
+   "raum": 158608573.0,
+   "state": "NJ"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "325633",
+   "name": "H SQUARED MANAGEMENT LP",
+   "raum": 151858297.0,
+   "state": "NY"
+  },
+  {
+   "city": "MIAMI",
+   "city_key": "MIAMI",
+   "crd": "317738",
+   "name": "KI CAPITAL WEALTH MANAGEMENT US LLC",
+   "raum": 145850933.0,
+   "state": "FL"
+  },
+  {
+   "city": "DUBLIN",
+   "city_key": "DUBLIN",
+   "crd": "171488",
+   "name": "EGSI INVESTMENT MANAGEMENT",
+   "raum": 144660922.0,
+   "state": "OH"
+  },
+  {
+   "city": "SPRING",
+   "city_key": "SPRING",
+   "crd": "165880",
+   "name": "STABILITY PARTNERS ADVISORY GROUP, LLC",
+   "raum": 140914174.0,
+   "state": "TX"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "312523",
+   "name": "PVA FINANCIAL, LLC",
+   "raum": 136853656.0,
+   "state": null
+  },
+  {
+   "city": "SAN JOSE",
+   "city_key": "SANJOSE",
+   "crd": "312196",
+   "name": "CORINTHIAN WEALTH MANAGEMENT",
+   "raum": 131665540.0,
+   "state": "CA"
+  },
+  {
+   "city": "LYNDHURST",
+   "city_key": "LYNDHURST",
+   "crd": "340724",
+   "name": "BISON WEALTH MANAGEMENT, LLC",
+   "raum": 131028624.0,
+   "state": "OH"
+  },
+  {
+   "city": "TAMPA",
+   "city_key": "TAMPA",
+   "crd": "329317",
+   "name": "SOLIST FINANCIAL",
+   "raum": 130131318.0,
+   "state": "FL"
+  },
+  {
+   "city": "ALPHARETTA",
+   "city_key": "ALPHARETTA",
+   "crd": "139125",
+   "name": "THE ADVISORY FIRM",
+   "raum": 126393156.0,
+   "state": "GA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "325288",
+   "name": "CJC WEALTH MANAGEMENT",
+   "raum": 121906496.0,
+   "state": null
+  },
+  {
+   "city": "SAN FRANCISCO",
+   "city_key": "SANFRANCISCO",
+   "crd": "334760",
+   "name": "WEALTH SCRIPT ADVISORS",
+   "raum": 121388307.0,
+   "state": "CA"
+  },
+  {
+   "city": "AUBURN",
+   "city_key": "AUBURN",
+   "crd": "290853",
+   "name": "ARROW WEALTH ADVISORS",
+   "raum": 121234291.0,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "177521",
+   "name": "FUTURE BRIGHT",
+   "raum": 120620275.0,
+   "state": null
+  },
+  {
+   "city": "CHANHASSEN",
+   "city_key": "CHANHASSEN",
+   "crd": "133181",
+   "name": "COLLEEN WEBER CPA, LLC",
+   "raum": 120611435.0,
+   "state": "MN"
+  },
+  {
+   "city": "RICHARDSON",
+   "city_key": "RICHARDSON",
+   "crd": "139403",
+   "name": "GFN CAPITAL MANAGEMENT",
+   "raum": 120053264.0,
+   "state": "TX"
+  },
+  {
+   "city": "MIAMI",
+   "city_key": "MIAMI",
+   "crd": "299275",
+   "name": "PINETREE ADVISORS CORP.",
+   "raum": 120000000.0,
+   "state": "FL"
+  },
+  {
+   "city": "NORTHRIDGE",
+   "city_key": "NORTHRIDGE",
+   "crd": "283119",
+   "name": "SCHAUER INVESTMENT MANAGEMENT, INC.",
+   "raum": 119744010.0,
+   "state": "CA"
+  },
+  {
+   "city": "MARLBOROUGH",
+   "city_key": "MARLBOROUGH",
+   "crd": "205511",
+   "name": "GREENPORT CAPITAL ADVISORS",
+   "raum": 119177562.0,
+   "state": "MA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "330875",
+   "name": "FREEDOM VALUE PARTNERS, LLC",
+   "raum": 119149107.0,
+   "state": null
+  },
+  {
+   "city": "BROOKLYN",
+   "city_key": "BROOKLYN",
+   "crd": "170886",
+   "name": "MINKO WEALTH",
+   "raum": 119090347.0,
+   "state": "NY"
+  },
+  {
+   "city": "OSTERVILLE",
+   "city_key": "OSTERVILLE",
+   "crd": "132369",
+   "name": "WASHINGTON FINANCIAL GROUP, INC.",
+   "raum": 119042191.0,
+   "state": "MA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "299603",
+   "name": "SINGER WEALTH MANAGEMENT",
+   "raum": 118997543.0,
+   "state": null
+  },
+  {
+   "city": "GILBERT",
+   "city_key": "GILBERT",
+   "crd": "313761",
+   "name": "REDEEM WEALTH MANAGEMENT",
+   "raum": 118646328.0,
+   "state": "AZ"
+  },
+  {
+   "city": "RALEIGH",
+   "city_key": "RALEIGH",
+   "crd": "146674",
+   "name": "TRG CAPITAL MANAGEMENT, INC.",
+   "raum": 118233904.0,
+   "state": "NC"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "150430",
+   "name": "BAS CAPITAL",
+   "raum": 117010925.0,
+   "state": null
+  },
+  {
+   "city": "PETALUMA",
+   "city_key": "PETALUMA",
+   "crd": "301028",
+   "name": "ALLPOINT FINANCIAL GROUP",
+   "raum": 116768023.0,
+   "state": "CA"
+  },
+  {
+   "city": "GROVE CITY",
+   "city_key": "GROVECITY",
+   "crd": "157870",
+   "name": "COLBURN WEALTH MANAGEMENT, LLC",
+   "raum": 116170000.0,
+   "state": "OH"
+  },
+  {
+   "city": "DALLAS",
+   "city_key": "DALLAS",
+   "crd": "342994",
+   "name": "LRH CAPITAL ADVISING LLC",
+   "raum": 113899694.0,
+   "state": "TX"
+  },
+  {
+   "city": "PEMBROKE PINES",
+   "city_key": "PEMBROKEPINES",
+   "crd": "153074",
+   "name": "COMMON CENTS WEALTH MANAGEMENT, LLC",
+   "raum": 113726879.0,
+   "state": "FL"
+  },
+  {
+   "city": "COLORADO SPRINGS",
+   "city_key": "COLORADOSPRINGS",
+   "crd": "290938",
+   "name": "56 CAPITAL PARTNERS, LTD",
+   "raum": 113310000.0,
+   "state": "CO"
+  },
+  {
+   "city": "WOODSTOCK",
+   "city_key": "WOODSTOCK",
+   "crd": "286017",
+   "name": "OXFORD PLANNING GROUP, LLC",
+   "raum": 112914960.0,
+   "state": "MD"
+  },
+  {
+   "city": "MAPLE GROVE",
+   "city_key": "MAPLEGROVE",
+   "crd": "152998",
+   "name": "UNDERDOG WEALTH MANAGEMENT, LLC",
+   "raum": 111880222.0,
+   "state": "MN"
+  },
+  {
+   "city": "ATHENS",
+   "city_key": "ATHENS",
+   "crd": "326015",
+   "name": "FULLY FINANCIAL",
+   "raum": 111147357.0,
+   "state": "GA"
+  },
+  {
+   "city": "SARASOTA",
+   "city_key": "SARASOTA",
+   "crd": "284438",
+   "name": "ADVANCED WEALTH MANAGEMENT",
+   "raum": 110740116.0,
+   "state": "FL"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "140568",
+   "name": "SCOTIA PARTNERS, LLC",
+   "raum": 110730178.0,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "152582",
+   "name": "C.L. SHELDON & COMPANY, LLC",
+   "raum": 110683215.0,
+   "state": null
+  },
+  {
+   "city": "CHICAGO",
+   "city_key": "CHICAGO",
+   "crd": "147139",
+   "name": "MIDWAY CAPITAL RESEARCH & MANAGEMENT LLC",
+   "raum": 110375561.0,
+   "state": "IL"
+  },
+  {
+   "city": "ROSEVILLE",
+   "city_key": "ROSEVILLE",
+   "crd": "342560",
+   "name": "LYNCH FINANCIAL ADVISORS, INC",
+   "raum": 108552000.0,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "171884",
+   "name": "JAYCO WEALTH MANAGEMENT",
+   "raum": 107945594.0,
+   "state": null
+  },
+  {
+   "city": "SMITHFILED",
+   "city_key": "SMITHFILED",
+   "crd": "134804",
+   "name": "NCU INVESTMENT SOLUTIONS",
+   "raum": 107551908.0,
+   "state": "RI"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "142841",
+   "name": "DC CAPITAL MANAGEMENT, LLC",
+   "raum": 107009732.0,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "305991",
+   "name": "EXPERIENCE YOUR WEALTH, LLC",
+   "raum": 105302182.0,
+   "state": null
+  },
+  {
+   "city": "PALO ALTO",
+   "city_key": "PALOALTO",
+   "crd": "330374",
+   "name": "KUKUI TREE CAPITAL MANAGEMENT LLC",
+   "raum": 105200000.0,
+   "state": "CA"
+  },
+  {
+   "city": "DOYLESTOWN",
+   "city_key": "DOYLESTOWN",
+   "crd": "304763",
+   "name": "OPULUS",
+   "raum": 104887661.0,
+   "state": "PA"
+  },
+  {
+   "city": "PUEBLO",
+   "city_key": "PUEBLO",
+   "crd": "150079",
+   "name": "MATHIES FINANCIAL PARTNERS",
+   "raum": 103963088.0,
+   "state": "CO"
+  },
+  {
+   "city": "WALLA WALLA",
+   "city_key": "WALLAWALLA",
+   "crd": "136020",
+   "name": "LIFEFOCUS FINANCIAL ADVISORS, LLC",
+   "raum": 103509339.0,
+   "state": "WA"
+  },
+  {
+   "city": "LOUISVILLE",
+   "city_key": "LOUISVILLE",
+   "crd": "161087",
+   "name": "RIVERSTONE ASSET MANAGEMENT, LLC",
+   "raum": 103037541.0,
+   "state": "KY"
+  },
+  {
+   "city": "CARMEL-BY-THE-SEA",
+   "city_key": "CARMELBYTHESEA",
+   "crd": "313075",
+   "name": "STILLWATER CAPITAL MANAGEMENT",
+   "raum": 102463339.0,
+   "state": "CA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "312126",
+   "name": "JPS ADVISORS LLC",
+   "raum": 26551815.0,
+   "state": null
+  },
+  {
+   "city": "CHICAGO",
+   "city_key": "CHICAGO",
+   "crd": "336832",
+   "name": "BLUE OWL REAL ASSETS ADVISORS LLC",
+   "raum": 0.0,
+   "state": "IL"
+  },
+  {
+   "city": "PHOENIX",
+   "city_key": "PHOENIX",
+   "crd": "338072",
+   "name": "UNSTOPPABLE ASSET",
+   "raum": 0.0,
+   "state": "AZ"
+  },
+  {
+   "city": "SAN ANTONIO",
+   "city_key": "SANANTONIO",
+   "crd": "338557",
+   "name": "STRATEGIQ FUNDS, INC.",
+   "raum": 0.0,
+   "state": "TX"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "340411",
+   "name": "SUMITOMO MITSUI TRUST ASSET MANAGEMENT AMERICAS, INC.",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "UNION",
+   "city_key": "UNION",
+   "crd": "340777",
+   "name": "INOVO WEALTH ARCHITECTS",
+   "raum": 0.0,
+   "state": "NJ"
+  },
+  {
+   "city": "PASADENA",
+   "city_key": "PASADENA",
+   "crd": "341591",
+   "name": "SKYLAR WEALTH MANAGEMENT, LLC",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "RADNOR",
+   "city_key": "RADNOR",
+   "crd": "341905",
+   "name": "GOALPOST WEALTH MANAGEMENT, LLC",
+   "raum": 0.0,
+   "state": "PA"
+  },
+  {
+   "city": "EL SEGUNDO",
+   "city_key": "ELSEGUNDO",
+   "crd": "342263",
+   "name": "ASTRAVIA FAMILY WEALTH OFFICE LLC",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "342272",
+   "name": "SHADOWBOX LOGISTICS",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "GILBERT",
+   "city_key": "GILBERT",
+   "crd": "342288",
+   "name": "MILLER WEALTH MANAGEMENT",
+   "raum": 0.0,
+   "state": "AZ"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "342301",
+   "name": "COMMUNITY CAPITAL ADVISORS LLC",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "DUBLIN 2",
+   "city_key": "DUBLIN2",
+   "crd": "342324",
+   "name": "BEARBULL INVESTMENTS",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "crd": "342427",
+   "name": "CALLODINE BDC ADVISOR, LLC",
+   "raum": 0.0,
+   "state": "MA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "342429",
+   "name": "QUASAR",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "342449",
+   "name": "RAC STRATEGIC PARTNERS",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "342452",
+   "name": "CAMBWICK US LLC",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "RADNOR",
+   "city_key": "RADNOR",
+   "crd": "342561",
+   "name": "GOLDEN RATIO WEALTH MANAGEMENT LLC",
+   "raum": 0.0,
+   "state": "PA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "342637",
+   "name": "EYRA",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "ST. CHARLES",
+   "city_key": "SAINTCHARLES",
+   "crd": "342641",
+   "name": "SOLSTICE GUARD CAPITAL",
+   "raum": 0.0,
+   "state": "MO"
+  },
+  {
+   "city": "WORCESTER",
+   "city_key": "WORCESTER",
+   "crd": "342680",
+   "name": "BARTHOLOMEW & COMPANY WEALTH MANAGEMENT, LLC",
+   "raum": 0.0,
+   "state": "MA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "342697",
+   "name": "EARLYBIRD ADVISORS LLC",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "342699",
+   "name": "VOXEL CAPITAL PARTNERS LP",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "GAINESVILLE",
+   "city_key": "GAINESVILLE",
+   "crd": "342728",
+   "name": "FINANCIAL POTENTIAL WEALTH MANAGEMENT",
+   "raum": 0.0,
+   "state": "GA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "342735",
+   "name": "VELARA WEALTH MANAGEMENT INC.",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "HOUSTON",
+   "city_key": "HOUSTON",
+   "crd": "342737",
+   "name": "PUBLIC SAFETY FINANCIAL GROUP, LLC",
+   "raum": 0.0,
+   "state": "TX"
+  },
+  {
+   "city": "UNION CITY",
+   "city_key": "UNIONCITY",
+   "crd": "342763",
+   "name": "WICK",
+   "raum": 0.0,
+   "state": "NJ"
+  },
+  {
+   "city": "PASADENA",
+   "city_key": "PASADENA",
+   "crd": "342776",
+   "name": "EAST WEST WEALTH ADVISORS LLC",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "MONTREAL, QC",
+   "city_key": "MONTREALQC",
+   "crd": "342777",
+   "name": "BIASAFE SECURITIES USA CORP",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "PHILADELPHIA",
+   "city_key": "PHILADELPHIA",
+   "crd": "342781",
+   "name": "EDYN",
+   "raum": 0.0,
+   "state": "PA"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "342819",
+   "name": "EHG WEALTH MANAGEMENT",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "IRVINE",
+   "city_key": "IRVINE",
+   "crd": "342820",
+   "name": "PELORUS CAPITAL MANAGEMENT, LLC",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "RALEIGH",
+   "city_key": "RALEIGH",
+   "crd": "342848",
+   "name": "OLDE RALEIGH FINANCIAL GROUP",
+   "raum": 0.0,
+   "state": "NC"
+  },
+  {
+   "city": "FALL RIVER",
+   "city_key": "FALLRIVER",
+   "crd": "342919",
+   "name": "HIRST FINANCIAL INDEPENDENCE PLANNING, INC.",
+   "raum": 0.0,
+   "state": "MA"
+  },
+  {
+   "city": "PRESCOTT",
+   "city_key": "PRESCOTT",
+   "crd": "342928",
+   "name": "ALLEN FINANCIAL PARTNERS",
+   "raum": 0.0,
+   "state": "AZ"
+  },
+  {
+   "city": "CAMP HILL",
+   "city_key": "CAMPHILL",
+   "crd": "342937",
+   "name": "LANGAN FINANCIAL GROUP",
+   "raum": 0.0,
+   "state": "PA"
+  },
+  {
+   "city": "FRANKLIN",
+   "city_key": "FRANKLIN",
+   "crd": "342950",
+   "name": "STEWARDWELL LLC",
+   "raum": 0.0,
+   "state": "TN"
+  },
+  {
+   "city": "LOS ANGELES",
+   "city_key": "LOSANGELES",
+   "crd": "342960",
+   "name": "KAHN ASSET MANAGEMENT",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "HOUSTON",
+   "city_key": "HOUSTON",
+   "crd": "342997",
+   "name": "LEGGETT VENTURES",
+   "raum": 0.0,
+   "state": "TX"
+  },
+  {
+   "city": "CHARLESTON",
+   "city_key": "CHARLESTON",
+   "crd": "342999",
+   "name": "COBBLERS COVE CAPITAL LP",
+   "raum": 0.0,
+   "state": "SC"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "343004",
+   "name": "FUTURECORP ASSET MANAGEMENT",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": "CAMDEN",
+   "city_key": "CAMDEN",
+   "crd": "343009",
+   "name": "IRISH CREEK CAPITAL",
+   "raum": 0.0,
+   "state": "NJ"
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "crd": "343021",
+   "name": "MAN ADVISERS LLC",
+   "raum": 0.0,
+   "state": "MA"
+  },
+  {
+   "city": "MIAMI",
+   "city_key": "MIAMI",
+   "crd": "343053",
+   "name": "POLOIDAL CAPITAL 9D ADVISORS LLC",
+   "raum": 0.0,
+   "state": "FL"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "343062",
+   "name": "SLR SECURED LENDING PARTNERS, LLC",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "SAN DIEGO",
+   "city_key": "SANDIEGO",
+   "crd": "343072",
+   "name": "VECTOR3 WEALTH MANAGEMENT",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "KNOXVILLE",
+   "city_key": "KNOXVILLE",
+   "crd": "343080",
+   "name": "W.B. EDWARDS & CO.",
+   "raum": 0.0,
+   "state": "TN"
+  },
+  {
+   "city": "TUSTIN",
+   "city_key": "TUSTIN",
+   "crd": "343090",
+   "name": "MY ADVISORS US LLC",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "SAN DIEGO",
+   "city_key": "SANDIEGO",
+   "crd": "343104",
+   "name": "ARIAM GLOBAL INC.",
+   "raum": 0.0,
+   "state": "CA"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "343132",
+   "name": "3A CAPITAL, LLC",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "TULSA",
+   "city_key": "TULSA",
+   "crd": "343176",
+   "name": "WALTON CREEK INVESTMENT ADVISORS",
+   "raum": 0.0,
+   "state": "OK"
+  },
+  {
+   "city": "BOSTON",
+   "city_key": "BOSTON",
+   "crd": "343208",
+   "name": "LIBERTY FORGE LLC",
+   "raum": 0.0,
+   "state": "MA"
+  },
+  {
+   "city": "COLD SPRING HARBOR",
+   "city_key": "COLDSPRINGHARBOR",
+   "crd": "343219",
+   "name": "THIRD HARBOR",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "NAPLES",
+   "city_key": "NAPLES",
+   "crd": "343247",
+   "name": "NAPLES WEALTH ADVISORS, LLC",
+   "raum": 0.0,
+   "state": "FL"
+  },
+  {
+   "city": "WHITE PLAINS",
+   "city_key": "WHITEPLAINS",
+   "crd": "343256",
+   "name": "MIDFIELD PRIVATE WEALTH, LLC",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": "NEW YORK",
+   "city_key": "NEWYORK",
+   "crd": "343298",
+   "name": "OPTOS REAL ESTATE CREDIT, LLC",
+   "raum": 0.0,
+   "state": "NY"
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "343299",
+   "name": "THOREAU MANAGEMENT PARTNERS, LP",
+   "raum": 0.0,
+   "state": null
+  },
+  {
+   "city": null,
+   "city_key": null,
+   "crd": "343315",
+   "name": "EMXETF",
+   "raum": 0.0,
+   "state": null
+  }
+ ],
+ "to": "2026-08-01"
+}
