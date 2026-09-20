@@ -87,14 +87,16 @@ jobs:
         if: >
           github.event_name == 'schedule' ||
           inputs.deploy
-        continue-on-error: true
+        # Deliberately NOT continue-on-error: a deploy that fails must fail the
+        # run. Only a genuinely absent secret is allowed to skip, so that this
+        # workflow still works before Cloudflare is connected.
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "Cloudflare secrets not set; skipping deploy."
-            echo "The built site is available as the 'site' artifact above."
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "::warning::Cloudflare secrets not set; skipping deploy. The built site is the 'site' artifact."
             exit 0
           fi
           npx --yes wrangler@3 pages deploy site \

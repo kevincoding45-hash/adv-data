@@ -47,9 +47,24 @@ def user_agent() -> str:
         )
     if "@" not in ua:
         raise ConfigError(
-            f"{USER_AGENT_ENV} must include a contact email address; got {ua!r}."
+            f"{USER_AGENT_ENV} must include a contact email address. "
+            f"Got {len(ua)} characters with no '@'."
         )
     return ua
+
+
+def describe_user_agent() -> str:
+    """A redacted description, safe to print.
+
+    The User-Agent contains a real email address and CI logs on a public repo are
+    world-readable, so the value itself must never reach a log.
+    """
+    ua = os.environ.get(USER_AGENT_ENV, "").strip()
+    if not ua:
+        return "unset"
+    name, _, address = ua.rpartition(" ")
+    domain = address.rpartition("@")[2] or "?"
+    return f"name={name!r}, contact=<redacted>@{domain}"
 
 
 def ensure_dirs() -> None:

@@ -46,6 +46,11 @@ TAGLINE = "Public SEC data on registered investment advisers"
 BASE_URL = (os.environ.get("SITE_BASE_URL") or "https://adviserrecord.com").rstrip("/")
 IAPD_FIRM = "https://adviserinfo.sec.gov/firm/summary/{crd}"
 
+# Shown on the privacy page. A constant rather than the build date, so rebuilds
+# stay byte-identical and the date means "when the policy last changed".
+PRIVACY_UPDATED = "2026-09-20"
+CONTACT_EMAIL = "privacy@adviserrecord.com"
+
 ASSETS = Path(__file__).resolve().parent / "assets"
 
 # Field groups rendered on a firm page, in order.
@@ -192,7 +197,7 @@ def layout(
   <p>This site reports what firms disclosed on Form ADV. It does not evaluate,
      rate, or recommend any adviser, and nothing here is investment advice.
      A disclosure is not a finding of wrongdoing.</p>
-  <p><a href="{root}about/">Method and corrections</a></p>
+  <p><a href="{root}about/">Method and corrections</a> &middot; <a href="{root}privacy/">Privacy</a></p>
 </div></footer>
 </body>
 </html>
@@ -406,7 +411,7 @@ def generate(db: Path, out: Path, *, limit: int | None = None) -> dict:
     }
     print(f"snapshot {snapshot}: {len(firms):,} firms")
 
-    urls: list[str] = ["/", "/states/", "/disclosures/", "/changes/", "/about/"]
+    urls: list[str] = ["/", "/states/", "/disclosures/", "/changes/", "/about/", "/privacy/"]
     live: dict[str, str] = {}  # crd -> firm page URL, for pages that link to firms
     written = 0
 
@@ -438,7 +443,9 @@ def generate(db: Path, out: Path, *, limit: int | None = None) -> dict:
     urls += list(change_pages)
     write_home(site, conn, snapshot, previous)
     write_about(site)
+    write_privacy(site)
     write_sitemap(site, urls, lastmod=change_pages)
+    write_headers(site)
 
     print(f"  {len(urls):,} urls total -> {out}")
     conn.close()
@@ -918,6 +925,138 @@ promptly. Include the firm's CRD number and the page address.</p>
 """,
         ),
     )
+
+
+def write_privacy(site: Site) -> None:
+    site.write(
+        "privacy/index.html",
+        layout(
+            site,
+            title=f"Privacy policy - {SITE_NAME}",
+            description="What this site does and does not collect about visitors, where its adviser data comes from, and how to ask for a correction.",
+            canonical="/privacy/",
+            depth=1,
+            body=f"""
+<h1>Privacy policy</h1>
+<span class='asof'>Last updated {esc(PRIVACY_UPDATED)}</span>
+
+<p>This is a plain-language summary of how this site handles information. It is
+short because the site does very little: it is a set of static pages built from
+a public government dataset.</p>
+
+<h2>What we collect from you</h2>
+<p><strong>Nothing that you type.</strong> There are no accounts, no sign-ups, no
+comments, no contact forms and no search box that reaches us. We do not ask you
+for any information, so there is none for us to store.</p>
+
+<h2>Cookies</h2>
+<p><strong>This site sets no cookies and runs no analytics.</strong> It contains
+no tracking scripts and no advertising. The only script on any page is a block of
+structured data that search engines read; it does not execute and collects nothing.</p>
+<p>If advertising is added in future, this page will be updated to say so before
+any adverts appear, because advertising networks generally set their own cookies.</p>
+
+<h2>Server logs</h2>
+<p>The site is hosted on Cloudflare Pages. Like any web host, Cloudflare records
+requests to the site, which can include your IP address, the page you asked for,
+your browser's user-agent string and the time of the request. This is ordinary
+technical logging, used to deliver pages and to protect against attacks. We do
+not use those logs to build any profile of you and we do not combine them with
+anything else.</p>
+
+<h2>Information about investment advisers</h2>
+<p>The adviser records on this site are <strong>public regulatory filings</strong>,
+republished from the monthly Form ADV data that the U.S. Securities and Exchange
+Commission publishes. They are not collected from visitors and they are not
+bought from data brokers. The SEC states that information on sec.gov is public
+information that may be copied and further distributed.</p>
+<p>A firm page can name a person, in that a firm's own name may contain one, and
+disciplinary disclosures concern a firm and its advisory affiliates. We publish
+only what the firm itself reported to the SEC, we show the date of the filing
+snapshot, and every firm page links to the SEC's own record.</p>
+
+<h2>Correcting or removing a record</h2>
+<p>If a page misstates what your firm filed, the fastest fix is at the source: an
+amended Form ADV flows through to this site at the next monthly rebuild, normally
+within a month.</p>
+<p>If the mistake is ours -- a mismatched record, a mangled name, a misread field --
+write to <a href="mailto:{esc(CONTACT_EMAIL)}">{esc(CONTACT_EMAIL)}</a> with the
+firm's CRD number and the address of the page, and we will correct it.</p>
+<p>We cannot remove a disclosure that the SEC's own data reports, because this site
+reflects that data rather than being a separate record of it. Requests of that kind
+belong with the SEC.</p>
+
+<h2>Your rights</h2>
+<p>If you are in the UK, the European Economic Area or California, you have rights
+over personal information relating to you, including asking what is held and asking
+for it to be corrected. For a visitor the practical answer is that we hold nothing
+beyond the host's technical logs described above. For adviser records, write to
+<a href="mailto:{esc(CONTACT_EMAIL)}">{esc(CONTACT_EMAIL)}</a> and we will respond.</p>
+<p>We do not sell personal information and never have.</p>
+
+<h2>Children</h2>
+<p>This site is not directed at children and contains nothing aimed at them.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the date at the top changes with it. Material changes,
+such as introducing advertising or analytics, will be described here before they
+take effect.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:{esc(CONTACT_EMAIL)}">{esc(CONTACT_EMAIL)}</a></p>
+""",
+        ),
+    )
+
+
+def write_headers(site: Site) -> None:
+    """Cloudflare Pages reads this file and sends these headers with every response.
+
+    The site has no executable JavaScript, no forms and no third-party resources,
+    so the policy can be close to as strict as CSP allows. Verified in a browser:
+    script-src 'none' does not block the JSON-LD structured-data blocks, because a
+    non-JavaScript script type is a data block rather than a script to execute.
+
+    NOTE: adding advertising will require relaxing script-src, connect-src,
+    img-src and frame-src for the ad network, or the adverts will be blocked.
+    """
+    policy = "; ".join(
+        [
+            "default-src 'self'",
+            "script-src 'none'",
+            "style-src 'self'",
+            "img-src 'self' data:",
+            "font-src 'self'",
+            "connect-src 'none'",
+            "object-src 'none'",
+            "frame-src 'none'",
+            "frame-ancestors 'none'",
+            "base-uri 'none'",
+            "form-action 'none'",
+            "upgrade-insecure-requests",
+        ]
+    )
+    permissions = ", ".join(
+        f"{feature}=()"
+        for feature in (
+            "accelerometer", "autoplay", "camera", "display-capture", "geolocation",
+            "gyroscope", "magnetometer", "microphone", "midi", "payment",
+            "screen-wake-lock", "usb", "xr-spatial-tracking",
+        )
+    )
+    # No `preload` token: preloading HSTS is effectively irreversible for months.
+    lines = [
+        "/*",
+        f"  Content-Security-Policy: {policy}",
+        "  Strict-Transport-Security: max-age=31536000; includeSubDomains",
+        "  X-Frame-Options: DENY",
+        "  X-Content-Type-Options: nosniff",
+        "  Referrer-Policy: strict-origin-when-cross-origin",
+        f"  Permissions-Policy: {permissions}",
+        "  Cross-Origin-Opener-Policy: same-origin",
+        "  Cross-Origin-Resource-Policy: same-origin",
+    ]
+    site.write("_headers", "\n".join(lines) + "\n")
 
 
 def write_sitemap(site: Site, urls: list[str], lastmod: dict[str, str] | None = None) -> None:

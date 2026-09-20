@@ -125,7 +125,10 @@ def fetch_month(
         if exc.code == 403:
             raise config.ConfigError(
                 "sec.gov returned 403, which almost always means the User-Agent "
-                f"was rejected. Current value: {config.user_agent()!r}"
+                "was rejected. It must be a declared name plus a contact email, "
+                f"e.g. 'Example Research contact@example.com'. Set via {config.USER_AGENT_ENV}. "
+                # Never echo the value: CI logs for a public repo are world-readable.
+                f"(currently {config.describe_user_agent()})"
             ) from exc
         raise
 

@@ -98,16 +98,41 @@ The deploy step skips itself cleanly when the Cloudflare secrets are absent, so
 the workflow is useful before an account exists -- the build still lands as a
 downloadable artifact.
 
+## Security
+
+There is no server, database or user input in production -- the site is static
+files on Cloudflare Pages -- so the attack surface is the build pipeline and the
+response headers.
+
+- `site/_headers` is generated on every build and read by Cloudflare Pages. It
+  sets a strict Content-Security-Policy (`script-src 'none'`), HSTS, frame denial,
+  a deny-all Permissions-Policy, and cross-origin isolation headers. Verified in a
+  browser that `script-src 'none'` does not block the JSON-LD structured data,
+  because a non-JavaScript script type is a data block, not a script.
+- **Adding advertising will require relaxing the CSP** (`script-src`, `connect-src`,
+  `img-src`, `frame-src`) or the adverts will be silently blocked.
+- The SEC User-Agent contains a real email address and is never printed. Errors
+  call `config.describe_user_agent()`, which redacts the local part, because CI
+  logs on a public repository are world-readable.
+- The deploy step is not `continue-on-error`: a failed deploy fails the run. Only
+  a genuinely missing Cloudflare secret skips, so the workflow still works before
+  Cloudflare is connected.
+- `GITHUB_TOKEN` is scoped to `contents: write`, used solely for the monthly
+  commit. `tests.yml` needs no secrets, so pull requests from forks cannot reach
+  them.
+- Optional hardening not done: pinning `actions/*` and `wrangler` to exact
+  commit SHAs / versions. They are first-party publishers, and an unverified pin
+  risks breaking deploys; worth doing once a pinned version has been tested.
+
 ## Known issues
 
 - **Cloudflare Pages caps free deployments at 20,000 files** and the current
-  build is 17,696. Adding individual adviser representatives would exceed it;
+  build is 17,705. Adding individual adviser representatives would exceed it;
   that would need sharding, a different host, or client-side rendering. The
   build workflow warns above 19,500.
 - Title-casing all-caps source names cannot recover internal capitals, so
   "RUBINBROWN" renders as "Rubinbrown" and "ACR" as "Acr". An exceptions list
   would fix the common ones.
-- `BASE_URL` in `generate_site.py` is a placeholder until a domain is registered.
 - Per-category disclosure counts (`Count of 11X disclosures`) are aggregated into
   a firm total at ingest but not stored per category, so firm pages show the
   total rather than a count beside each question.
