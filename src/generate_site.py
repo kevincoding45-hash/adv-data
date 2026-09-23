@@ -48,7 +48,7 @@ IAPD_FIRM = "https://adviserinfo.sec.gov/firm/summary/{crd}"
 
 # Shown on the privacy page. A constant rather than the build date, so rebuilds
 # stay byte-identical and the date means "when the policy last changed".
-PRIVACY_UPDATED = "2026-09-20"
+PRIVACY_UPDATED = "2026-09-23"
 CONTACT_EMAIL = "privacy@adviserrecord.com"
 
 ASSETS = Path(__file__).resolve().parent / "assets"
@@ -954,11 +954,22 @@ comments, no contact forms and no search box that reaches us. We do not ask you
 for any information, so there is none for us to store.</p>
 
 <h2>Cookies</h2>
-<p><strong>This site sets no cookies and runs no analytics.</strong> It contains
-no tracking scripts and no advertising. The only script on any page is a block of
-structured data that search engines read; it does not execute and collects nothing.</p>
+<p><strong>This site sets no cookies of its own, runs no analytics of its own,
+and carries no advertising.</strong> The only script we put on a page is a block
+of structured data that search engines read; it does not execute and collects
+nothing.</p>
 <p>If advertising is added in future, this page will be updated to say so before
 any adverts appear, because advertising networks generally set their own cookies.</p>
+
+<h2>Our host's analytics</h2>
+<p>Cloudflare, which hosts this site, adds its own analytics tag to pages sent to
+web browsers. Cloudflare Web Analytics is cookieless: it sets no cookies, does not
+fingerprint your device, and does not follow you between sites. It counts page
+views and basic technical details such as the page requested and the browser type.</p>
+<p>This site's content security policy currently blocks that script from running,
+so in practice it collects nothing. We describe it here because the tag is present
+in the page, and saying so is more accurate than claiming there is nothing there.
+If that changes, this page changes with it.</p>
 
 <h2>Server logs</h2>
 <p>The site is hosted on Cloudflare Pages. Like any web host, Cloudflare records
