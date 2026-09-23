@@ -165,8 +165,11 @@ def layout(
     body: str,
     depth: int,
     jsonld: str = "",
+    root: str | None = None,
 ) -> str:
-    root = "../" * depth if depth else ""
+    # The 404 page is served at any depth, so it passes root="/" to force
+    # absolute asset and navigation links.
+    root = root if root is not None else ("../" * depth if depth else "")
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,7 +177,7 @@ def layout(
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(description)}">
-<link rel="canonical" href="{esc(BASE_URL + canonical)}">
+{f'<link rel="canonical" href="{esc(BASE_URL + canonical)}">' if canonical else ""}
 <link rel="stylesheet" href="{root}style.css">
 {jsonld}
 </head>
@@ -444,6 +447,7 @@ def generate(db: Path, out: Path, *, limit: int | None = None) -> dict:
     write_home(site, conn, snapshot, previous)
     write_about(site)
     write_privacy(site)
+    write_404(site)
     write_sitemap(site, urls, lastmod=change_pages)
     write_headers(site)
 
@@ -1057,6 +1061,43 @@ def write_headers(site: Site) -> None:
         "  Cross-Origin-Resource-Policy: same-origin",
     ]
     site.write("_headers", "\n".join(lines) + "\n")
+
+
+def write_404(site: Site) -> None:
+    """Cloudflare Pages serves this with a real 404 status for unmatched paths.
+
+    Without it, Pages falls back to index.html and every nonexistent URL answers
+    200 with the home page. Search engines treat that as a soft 404, and an
+    unbounded space of URLs all returning the same page wastes crawl budget that
+    should go to real firm pages.
+
+    Deliberately not in the sitemap, and not linked from anywhere.
+    """
+    site.write(
+        "404.html",
+        layout(
+            site,
+            title=f"Page not found - {SITE_NAME}",
+            description="This page does not exist.",
+            canonical="",  # a 404 should not claim to be the canonical of anything
+            depth=0,
+            root="/",
+            body="""
+<h1>Page not found</h1>
+<p class='sub'>That address does not match anything on this site.</p>
+<p>Firms come and go from the SEC's register, so a page that existed in an
+earlier monthly snapshot may no longer be here.</p>
+<ul class='plain'>
+  <li><a href="/states/">Browse advisers by state</a></li>
+  <li><a href="/disclosures/">Advisers reporting disciplinary disclosures</a></li>
+  <li><a href="/changes/">What changed each month</a></li>
+  <li><a href="/about/">About the data</a></li>
+</ul>
+<p class='muted'>To look up a firm directly, the SEC's own search is at
+<a href="https://adviserinfo.sec.gov/" rel="nofollow noopener">adviserinfo.sec.gov</a>.</p>
+""",
+        ),
+    )
 
 
 def write_sitemap(site: Site, urls: list[str], lastmod: dict[str, str] | None = None) -> None:
