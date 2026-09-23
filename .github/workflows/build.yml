@@ -10,6 +10,16 @@ name: build
 on:
   schedule:
     - cron: "0 13 1-7 * *"
+  # Deploy whenever the code that produces the site changes. Without this, a fix
+  # sits unpublished until the next monthly run or a manual click -- which is how
+  # the privacy page and security headers stayed undeployed for three days.
+  # Cannot loop: the job's own commit uses GITHUB_TOKEN, and pushes made with
+  # GITHUB_TOKEN do not trigger workflows.
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - ".github/workflows/build.yml"
   workflow_dispatch:
     inputs:
       deploy:
@@ -85,7 +95,7 @@ jobs:
         # Skipped automatically until the Cloudflare secrets exist, so the
         # workflow is useful before a domain and account are set up.
         if: >
-          github.event_name == 'schedule' ||
+          github.event_name != 'workflow_dispatch' ||
           inputs.deploy
         # Deliberately NOT continue-on-error: a deploy that fails must fail the
         # run. Only a genuinely absent secret is allowed to skip, so that this
